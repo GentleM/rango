@@ -1,11 +1,8 @@
 package com.cjm.rango.cache;
 
-import io.lettuce.core.RedisClient;
+import com.cjm.rango.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
-import org.springframework.data.redis.cache.RedisCache;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -20,16 +17,12 @@ public class RedisCacheService implements CommandLineRunner{
 //    private Logger logger = lo
 
     @Autowired
-    private RedisTemplate redisTemplate;
-
-    @Autowired
     private StringRedisTemplate StringRedisTemplate;
 
     @Override
     public void run(String... strings) throws Exception {
+        StringRedisTemplate.delete(StringRedisTemplate.keys("*"));      //清空缓存数据
         StringRedisTemplate.opsForValue().set("aaa", "rango");
         StringRedisTemplate.opsForValue().set("xinzeng", "222");
-        redisTemplate.
-        System.out.println("11111");
     }
 }
