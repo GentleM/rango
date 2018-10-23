@@ -14,7 +14,7 @@ import java.util.Map;
 public class RangoApplication {
 
 	@RequestMapping("/")
-	User home() {
+	public User home() {
 //		Map<String, String> map = new HashMap<>();
 //		map.put("1", "1");
 //		map.put("2", "5");
